@@ -1,13 +1,20 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100;200;300;400&display=swap");
 
-* {
+*,
+*::after,
+*::before {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
+  box-sizing: inherit;
+}
+
+html {
+  font-size: 100%;
 }
 
 body {
   font-family: "Roboto Slab", sans-serif;
+  box-sizing: border-box;
 }
 
 /* Header Section */
@@ -19,8 +26,8 @@ body {
   padding: 0.6rem 3.5rem;
 }
 .header__logo-box {
-  width: 5rem;
-  height: 2rem;
+  width: 8rem;
+  height: 3.5rem;
 }
 .header__logo-box img {
   width: 100%;
@@ -37,62 +44,76 @@ body {
 }
 .heading-secondary {
   font-size: 1.5rem;
-  margin-bottom: 2rem;
-  position: relative;
+  margin-bottom: 1rem;
 }
-.heading-secondary::after {
-  content: " ";
-  position: absolute;
-  width: 5rem;
-  height: 0.1rem;
-  background-color: #e68100;
-  left: 0;
-  top: 2rem;
-}
+
 .color-primary {
   color: #e68100;
 }
 .paragraph-primary {
   font-size: 1.12rem;
+  margin-top: 1rem;
 }
 
 .paragraph-secondary {
-  font-size: 1rem;
+  font-size: 0.9rem;
 }
 
 .section-title {
   text-align: center;
   position: relative;
 }
-
-.heading-primary::after {
+.section-title ::after {
   content: " ";
   position: absolute;
-  width: 4.4rem;
+  width: 6rem;
   height: 0.15rem;
   background-color: #e68100;
-  top: 2.3rem;
-  left: 0;
+  top: 2.8rem;
+  left: 46%;
 }
 
 /* Navigation Section */
 
 .navigation {
-  width: 45%;
+  width: 50%;
 }
+.side-menu-bar {
+  display: none;
+}
+
 .navigation__list {
   list-style: none;
   list-style-type: none;
   display: flex;
   justify-content: space-between;
 }
+.navigation__item:hover {
+  border-bottom: 1px solid #472b1b;
+}
 
 .navigation__link:visited,
 .navigation__link:link {
-  color: black;
+  color: #4a302c;
   font-size: 1rem;
   text-decoration: none;
 }
+/* @media screen and (max-device-width: 360px) {
+  .navigation__list {
+    display: block;
+  }
+  .side-menu-bar {
+    display: block;
+    cursor: pointer;
+  }
+} */
+
+/* @media screen and (min-device-width: 769px) {
+  .navigation {
+    width: 50%;
+  }
+} */
+
 /* 
 Header Box Section */
 .header__box {
@@ -119,6 +140,11 @@ Header Box Section */
   background-color: transparent;
   font-size: 1rem;
   margin-top: 2.5rem;
+  cursor: pointer;
+}
+.btn-transparent:active,
+.btn-transparent:hover {
+  background-color: rgba(230, 129, 0, 0.1);
 }
 
 .header-paragraph {
@@ -127,15 +153,30 @@ Header Box Section */
 }
 
 /* Menu-Section */
+.section-heading {
+  font-size: 1.5rem;
+  position: relative;
+}
+.section-heading::after {
+  content: " ";
+  position: absolute;
+  width: 5rem;
+  height: 0.1rem;
+  background-color: #e68100;
+  left: 0;
+  top: 2.4rem;
+}
 .section-menus {
   width: 100vw;
   display: flex;
   justify-content: row;
-  padding-right: 5rem;
 }
 .p-width {
   padding-right: 20rem;
   margin-top: 0.4rem;
+}
+.menu-content {
+  padding-right: 4rem;
 }
 .menu-photos,
 .menu-items {
@@ -154,14 +195,15 @@ Header Box Section */
 }
 .menu-photo-1 img,
 .menu-photo-2 img,
-.menu-photo-3 img {
+.menu-photo-3 img,
+.menu-photo-4 img {
   width: 100%;
   height: 100%;
 }
 
 .menu-photo-1 {
-  transform: scaleY(-1);
-  overflow: hidden;
+  transform: rotate(90deg);
+  position: absolute;
 }
 
 .menu-photo-2 {
@@ -179,6 +221,18 @@ Header Box Section */
 .menu-items {
   padding: 3rem;
   width: 70%;
+  position: relative;
+}
+
+.menu-photo-4 {
+  position: absolute;
+  right: -1.4rem;
+
+  width: 15rem;
+  height: 15rem;
+}
+.menu-photo-4 img {
+  transform: rotate(40deg);
 }
 .menu-items ul {
   list-style: none;
@@ -202,27 +256,59 @@ Header Box Section */
   flex-grow: 1;
   border-bottom: 1px solid black;
   margin: 0 0.7rem;
-  height: 0.8rem;
-  justify-content: flex-end;
+  height: 1rem;
 }
 .main-title {
   padding-bottom: 1rem;
   border-bottom: 1px solid #e68100;
 }
 
-.menu-button button {
-  color: black;
+.menu-button {
+  color: #472b1b;
   font: inherit;
   background-color: white;
-  border: 1.5px solid black;
+  border: 1px solid #472b1b;
   padding: 1rem;
+  font-size: 1rem;
+  cursor: pointer;
 }
+
+.menu-button:hover,
+.menu-button:active {
+  background-color: rgba(230, 129, 0, 0.3);
+}
+/* 
+@media screen and (min-device-width: 769px) {
+  .p-width {
+    padding-right: 5rem;
+  }
+  .menu-photos {
+    width: 50%;
+  }
+}
+
+@media screen and (max-device-width: 360px) {
+  .menu-photo-1,
+  .menu-photo-2,
+  .menu-photo-3,
+  .menu-photo-4 {
+    width: 5rem;
+    height: 5rem;
+  }
+  .menu-content {
+    padding: 0;
+  }
+  .menu-list-item {
+    width: 100%;
+  }
+} */
 
 /* Services Section */
 
 .section-services {
   background-color: #fef8f1;
-  padding: 1rem;
+  padding-top: 3rem;
+  padding-bottom: 2rem;
 }
 
 .services-list {
@@ -231,7 +317,7 @@ Header Box Section */
   flex-wrap: wrap;
   justify-content: center;
   padding: 3rem;
-  height: 50rem;
+  height: 45rem;
   align-items: center;
 }
 .service-list {
@@ -246,15 +332,20 @@ Header Box Section */
   text-align: center;
 }
 
+.service-description p {
+  width: 80%;
+  margin: 1rem auto;
+}
+
 /* Testimonials Section */
 .testimonial-container {
   display: flex;
   justify-content: space-between;
   padding: 1rem;
-  margin-top: 2rem;
+  margin-top: 4rem;
 }
 .testimonial {
-  width: 25%;
+  width: 30%;
 }
 .section-testimonials {
   padding: 4rem;
@@ -284,11 +375,32 @@ Header Box Section */
   display: flex;
   align-items: center;
 }
-
+.testimonial-2 {
+  border: 1.5px solid black;
+  padding: 2rem;
+  position: relative;
+}
+.testimonial-1,
+.testimonial-3 {
+  padding: 2rem;
+}
+.icon-quote {
+  position: absolute;
+  top: -0.7rem;
+  left: 2rem;
+  background-color: white;
+  font-size: 1.4em;
+}
 /* Location Section  */
 .section-location {
-  background-image: linear-gradient(to right bottom, #f4eadc, #f4eadc),
+  background-image: linear-gradient(
+      to bottom,
+      rgba(244, 234, 220, 0.95),
+      rgba(244, 234, 220, 0.95)
+    ),
     url(./../assests/images/group.png);
+  background-position: center;
+
   padding: 4rem;
   color: #4a302c;
   text-align: center;
@@ -298,14 +410,26 @@ Header Box Section */
   font: inherit;
   background-color: transparent;
   color: #4a302c;
-  border: 1px solid black;
+  border: 1.5px solid black;
+  cursor: pointer;
+}
+
+.location-button button:hover,
+.location-button button:active {
+  background-color: rgba(230, 129, 0, 0.3);
 }
 
 .location-description {
   padding: 0 18rem;
-  margin-bottom: 2rem;
+  margin: 3rem 2rem;
   color: #4a302c;
 }
+
+/* @media screen and (min-device-width: 769px) {
+  .location-description {
+    padding: 0 5rem;
+  }
+} */
 
 /* Follow Us Section  */
 
